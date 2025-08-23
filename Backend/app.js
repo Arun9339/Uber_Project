@@ -6,6 +6,8 @@ const cors = require('cors');
 app.use(cors());
 const userroutes = require('./route/user.routes');
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 const connectDB = require('./db/db');
 connectDB();
