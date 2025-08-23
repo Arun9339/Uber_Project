@@ -5,6 +5,7 @@ dotenv.config();
 const cors = require('cors');
 app.use(cors());
 const userroutes = require('./route/user.routes');
+const captainRoutes = require('./route/captain.routes');
 
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -25,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/users', userroutes);
-
+app.use('/captains',captainRoutes);
 
 
 module.exports = app;   
