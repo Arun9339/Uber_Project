@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const CaptainSignup = () => {
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const submitHandler = (e) => {
-    e.preventDefault()
-    console.log({ firstName, lastName, email, password })
-    // later connect with backend here
-  }
+    e.preventDefault();
+    const captainData = { firstName, lastName, email, password };
+    console.log('Captain signup data:', captainData);
+    // TODO: Connect to backend API here
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPassword('');
+  };
 
   return (
     <div className="p-5 max-w-md mx-auto">
@@ -24,7 +29,6 @@ const CaptainSignup = () => {
 
       {/* Form */}
       <form onSubmit={submitHandler} className="flex flex-col">
-        {/* Name */}
         <h3 className="text-lg font-medium mb-2">What's your name</h3>
         <div className="flex gap-3">
           <input
@@ -45,7 +49,6 @@ const CaptainSignup = () => {
           />
         </div>
 
-        {/* Email */}
         <h3 className="text-lg font-medium mb-2">What's your email</h3>
         <input
           value={email}
@@ -56,7 +59,6 @@ const CaptainSignup = () => {
           placeholder="Your email"
         />
 
-        {/* Password */}
         <h3 className="text-lg font-medium mb-2">Enter Password</h3>
         <input
           value={password}
@@ -67,7 +69,6 @@ const CaptainSignup = () => {
           placeholder="Your password"
         />
 
-        {/* Submit */}
         <button
           className="bg-[#111] text-white mb-7 rounded px-4 py-2 w-full text-lg"
           type="submit"
@@ -78,8 +79,8 @@ const CaptainSignup = () => {
 
       {/* Login Link */}
       <p className="text-center">
-        Already have an account?{" "}
-        <Link to="/login" className="text-blue-600">
+        Already have an account?{' '}
+        <Link to="/CaptainLogin" className="text-blue-600">
           Login
         </Link>
       </p>
@@ -88,15 +89,15 @@ const CaptainSignup = () => {
       <div className="mt-5">
         <p className="text-[10px] leading-tight text-gray-600">
           By proceeding, you consent to receive calls, WhatsApp or SMS messages,
-          including by automated means, from Uber and its affiliates to the number provided. 
+          including by automated means, from Uber and its affiliates to the number provided.
           You may opt out anytime in your app settings. <br />
-          This site is protected by reCAPTCHA and the{" "}
-          <span className="underline">Google Privacy Policy</span> and{" "}
+          This site is protected by reCAPTCHA and the{' '}
+          <span className="underline">Google Privacy Policy</span> and{' '}
           <span className="underline">Terms of Service</span> apply.
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CaptainSignup
+export default CaptainSignup;
